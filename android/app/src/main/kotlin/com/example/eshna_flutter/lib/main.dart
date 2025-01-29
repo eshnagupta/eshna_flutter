@@ -8,7 +8,6 @@ void main() {
 
 class DiceRoller extends StatelessWidget {
   DiceRoller({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
