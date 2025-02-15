@@ -1,0 +1,245 @@
+<html>
+<head>
+<title>main.dart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #6aab73;}
+.s3 { color: #bcbec4;}
+.s4 { color: #cf8e6d;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.dart</font>
+</center></td></tr></table>
+<pre><span class="s0">// Eshna Gupta</span>
+<span class="s0">// File: Calculator.dart</span>
+
+
+<span class="s1">import </span><span class="s2">'package:flutter/material.dart'</span><span class="s3">;</span>
+
+<span class="s4">void </span><span class="s1">main</span><span class="s3">() {</span>
+  <span class="s1">runApp</span><span class="s3">(</span><span class="s4">const </span><span class="s1">Calculator</span><span class="s3">());</span>
+<span class="s3">}</span>
+
+<span class="s4">class </span><span class="s1">Calculator </span><span class="s4">extends </span><span class="s1">StatelessWidget </span><span class="s3">{</span>
+  <span class="s4">const </span><span class="s1">Calculator</span><span class="s3">({</span><span class="s4">super</span><span class="s3">.</span><span class="s1">key</span><span class="s3">});</span>
+
+  <span class="s1">@override</span>
+  <span class="s1">Widget build</span><span class="s3">(</span><span class="s1">BuildContext context</span><span class="s3">) {</span>
+    <span class="s4">return </span><span class="s1">MaterialApp</span><span class="s3">(</span>
+      <span class="s1">title</span><span class="s3">: </span><span class="s2">'Converter'</span><span class="s3">,</span>
+      <span class="s1">theme</span><span class="s3">: </span><span class="s1">ThemeData</span><span class="s3">(</span>
+        <span class="s1">primarySwatch</span><span class="s3">: </span><span class="s1">Colors</span><span class="s3">.</span><span class="s1">blue</span><span class="s3">,</span>
+        <span class="s1">useMaterial3</span><span class="s3">: </span><span class="s4">true</span><span class="s3">,</span>
+      <span class="s3">),</span>
+      <span class="s1">home</span><span class="s3">: </span><span class="s4">const </span><span class="s1">CalculatorHome</span><span class="s3">(),</span>
+    <span class="s3">);</span>
+  <span class="s3">}</span>
+<span class="s3">}</span>
+
+<span class="s4">class </span><span class="s1">CalculatorHome </span><span class="s4">extends </span><span class="s1">StatefulWidget </span><span class="s3">{</span>
+  <span class="s4">const </span><span class="s1">CalculatorHome</span><span class="s3">({</span><span class="s4">super</span><span class="s3">.</span><span class="s1">key</span><span class="s3">});</span>
+
+  <span class="s1">@override</span>
+  <span class="s1">State</span><span class="s3">&lt;</span><span class="s1">CalculatorHome</span><span class="s3">&gt; </span><span class="s1">createState</span><span class="s3">() =&gt; </span><span class="s1">_CalculatorHomeState</span><span class="s3">();</span>
+<span class="s3">}</span>
+
+<span class="s4">class </span><span class="s1">_CalculatorHomeState </span><span class="s4">extends </span><span class="s1">State</span><span class="s3">&lt;</span><span class="s1">CalculatorHome</span><span class="s3">&gt; {</span>
+  <span class="s1">String inputValue </span><span class="s3">= </span><span class="s2">''</span><span class="s3">;</span>
+  <span class="s1">String outputValue </span><span class="s3">= </span><span class="s2">''</span><span class="s3">;</span>
+  <span class="s1">String selectedConversion </span><span class="s3">= </span><span class="s2">'C-F'</span><span class="s3">;</span>
+
+  <span class="s0">// Conversion functions</span>
+  <span class="s1">double celsiusToFahrenheit</span><span class="s3">(</span><span class="s1">double celsius</span><span class="s3">) {</span>
+    <span class="s4">return </span><span class="s3">(</span><span class="s1">celsius </span><span class="s3">* </span><span class="s5">9</span><span class="s3">/</span><span class="s5">5</span><span class="s3">) + </span><span class="s5">32</span><span class="s3">;</span>
+  <span class="s3">}</span>
+
+  <span class="s1">double fahrenheitToCelsius</span><span class="s3">(</span><span class="s1">double fahrenheit</span><span class="s3">) {</span>
+    <span class="s4">return </span><span class="s3">(</span><span class="s1">fahrenheit </span><span class="s3">- </span><span class="s5">32</span><span class="s3">) * </span><span class="s5">5</span><span class="s3">/</span><span class="s5">9</span><span class="s3">;</span>
+  <span class="s3">}</span>
+
+  <span class="s1">double kgToLbs</span><span class="s3">(</span><span class="s1">double kg</span><span class="s3">) {</span>
+    <span class="s4">return </span><span class="s1">kg </span><span class="s3">* </span><span class="s5">2.20462</span><span class="s3">;</span>
+  <span class="s3">}</span>
+
+  <span class="s1">double lbsToKg</span><span class="s3">(</span><span class="s1">double lbs</span><span class="s3">) {</span>
+    <span class="s4">return </span><span class="s1">lbs </span><span class="s3">/ </span><span class="s5">2.20462</span><span class="s3">;</span>
+  <span class="s3">}</span>
+
+  <span class="s4">void </span><span class="s1">onButtonPressed</span><span class="s3">(</span><span class="s1">String value</span><span class="s3">) {</span>
+    <span class="s1">setState</span><span class="s3">(() {</span>
+      <span class="s4">if </span><span class="s3">(</span><span class="s1">value </span><span class="s3">== </span><span class="s2">'C'</span><span class="s3">) {</span>
+        <span class="s1">inputValue </span><span class="s3">= </span><span class="s2">''</span><span class="s3">;</span>
+        <span class="s1">outputValue </span><span class="s3">= </span><span class="s2">''</span><span class="s3">;</span>
+      <span class="s3">} </span><span class="s4">else </span><span class="s3">{</span>
+        <span class="s4">if </span><span class="s3">(</span><span class="s1">value </span><span class="s3">== </span><span class="s2">'.' </span><span class="s3">&amp;&amp; </span><span class="s1">inputValue</span><span class="s3">.</span><span class="s1">contains</span><span class="s3">(</span><span class="s2">'.'</span><span class="s3">)) </span><span class="s4">return</span><span class="s3">;</span>
+        <span class="s4">if </span><span class="s3">(</span><span class="s1">value </span><span class="s3">== </span><span class="s2">'-' </span><span class="s3">&amp;&amp; </span><span class="s1">inputValue</span><span class="s3">.</span><span class="s1">isNotEmpty</span><span class="s3">) </span><span class="s4">return</span><span class="s3">;</span>
+        <span class="s1">inputValue </span><span class="s3">+= </span><span class="s1">value</span><span class="s3">;</span>
+
+        <span class="s0">// Perform conversion immediately when input changes</span>
+        <span class="s4">try </span><span class="s3">{</span>
+          <span class="s1">double input </span><span class="s3">= </span><span class="s1">double</span><span class="s3">.</span><span class="s1">parse</span><span class="s3">(</span><span class="s1">inputValue</span><span class="s3">);</span>
+          <span class="s1">double result</span><span class="s3">;</span>
+
+          <span class="s4">switch </span><span class="s3">(</span><span class="s1">selectedConversion</span><span class="s3">) {</span>
+            <span class="s4">case </span><span class="s2">'C-F'</span><span class="s3">:</span>
+              <span class="s1">result </span><span class="s3">= </span><span class="s1">celsiusToFahrenheit</span><span class="s3">(</span><span class="s1">input</span><span class="s3">);</span>
+              <span class="s4">break</span><span class="s3">;</span>
+            <span class="s4">case </span><span class="s2">'F-C'</span><span class="s3">:</span>
+              <span class="s1">result </span><span class="s3">= </span><span class="s1">fahrenheitToCelsius</span><span class="s3">(</span><span class="s1">input</span><span class="s3">);</span>
+              <span class="s4">break</span><span class="s3">;</span>
+            <span class="s4">case </span><span class="s2">'Kg-Lb'</span><span class="s3">:</span>
+              <span class="s1">result </span><span class="s3">= </span><span class="s1">kgToLbs</span><span class="s3">(</span><span class="s1">input</span><span class="s3">);</span>
+              <span class="s4">break</span><span class="s3">;</span>
+            <span class="s4">case </span><span class="s2">'Lb-Kg'</span><span class="s3">:</span>
+              <span class="s1">result </span><span class="s3">= </span><span class="s1">lbsToKg</span><span class="s3">(</span><span class="s1">input</span><span class="s3">);</span>
+              <span class="s4">break</span><span class="s3">;</span>
+            <span class="s4">default</span><span class="s3">:</span>
+              <span class="s1">result </span><span class="s3">= </span><span class="s5">0</span><span class="s3">;</span>
+          <span class="s3">}</span>
+
+          <span class="s1">outputValue </span><span class="s3">= </span><span class="s1">result</span><span class="s3">.</span><span class="s1">toStringAsFixed</span><span class="s3">(</span><span class="s5">4</span><span class="s3">);</span>
+        <span class="s3">} </span><span class="s4">catch </span><span class="s3">(</span><span class="s1">e</span><span class="s3">) {</span>
+          <span class="s1">outputValue </span><span class="s3">= </span><span class="s2">''</span><span class="s3">;</span>
+        <span class="s3">}</span>
+      <span class="s3">}</span>
+    <span class="s3">});</span>
+  <span class="s3">}</span>
+
+  <span class="s1">@override</span>
+  <span class="s1">Widget build</span><span class="s3">(</span><span class="s1">BuildContext context</span><span class="s3">) {</span>
+    <span class="s4">return </span><span class="s1">Scaffold</span><span class="s3">(</span>
+      <span class="s1">body</span><span class="s3">: </span><span class="s1">Container</span><span class="s3">(</span>
+        <span class="s1">color</span><span class="s3">: </span><span class="s1">Colors</span><span class="s3">.</span><span class="s1">white</span><span class="s3">,</span>
+        <span class="s1">padding</span><span class="s3">: </span><span class="s4">const </span><span class="s1">EdgeInsets</span><span class="s3">.</span><span class="s1">all</span><span class="s3">(</span><span class="s5">16</span><span class="s3">),</span>
+        <span class="s1">child</span><span class="s3">: </span><span class="s1">Column</span><span class="s3">(</span>
+          <span class="s1">children</span><span class="s3">: [</span>
+            <span class="s0">// Title</span>
+            <span class="s4">const </span><span class="s1">Text</span><span class="s3">(</span>
+              <span class="s2">'Converter'</span><span class="s3">,</span>
+              <span class="s1">style</span><span class="s3">: </span><span class="s1">TextStyle</span><span class="s3">(</span><span class="s1">fontSize</span><span class="s3">: </span><span class="s5">24</span><span class="s3">, </span><span class="s1">fontWeight</span><span class="s3">: </span><span class="s1">FontWeight</span><span class="s3">.</span><span class="s1">bold</span><span class="s3">),</span>
+            <span class="s3">),</span>
+            <span class="s4">const </span><span class="s1">SizedBox</span><span class="s3">(</span><span class="s1">height</span><span class="s3">: </span><span class="s5">20</span><span class="s3">),</span>
+
+            <span class="s0">// Display area</span>
+            <span class="s1">Container</span><span class="s3">(</span>
+              <span class="s1">decoration</span><span class="s3">: </span><span class="s1">BoxDecoration</span><span class="s3">(</span>
+                <span class="s1">border</span><span class="s3">: </span><span class="s1">Border</span><span class="s3">.</span><span class="s1">all</span><span class="s3">(</span><span class="s1">color</span><span class="s3">: </span><span class="s1">Colors</span><span class="s3">.</span><span class="s1">grey</span><span class="s3">),</span>
+                <span class="s1">borderRadius</span><span class="s3">: </span><span class="s1">BorderRadius</span><span class="s3">.</span><span class="s1">circular</span><span class="s3">(</span><span class="s5">4</span><span class="s3">),</span>
+              <span class="s3">),</span>
+              <span class="s1">padding</span><span class="s3">: </span><span class="s4">const </span><span class="s1">EdgeInsets</span><span class="s3">.</span><span class="s1">symmetric</span><span class="s3">(</span><span class="s1">horizontal</span><span class="s3">: </span><span class="s5">12</span><span class="s3">, </span><span class="s1">vertical</span><span class="s3">: </span><span class="s5">8</span><span class="s3">),</span>
+              <span class="s1">child</span><span class="s3">: </span><span class="s1">Row</span><span class="s3">(</span>
+                <span class="s1">mainAxisAlignment</span><span class="s3">: </span><span class="s1">MainAxisAlignment</span><span class="s3">.</span><span class="s1">spaceBetween</span><span class="s3">,</span>
+                <span class="s1">children</span><span class="s3">: [</span>
+                  <span class="s1">Text</span><span class="s3">(</span>
+                    <span class="s1">inputValue</span><span class="s3">.</span><span class="s1">isEmpty </span><span class="s3">? </span><span class="s2">'0' </span><span class="s3">: </span><span class="s1">inputValue</span><span class="s3">,</span>
+                    <span class="s1">style</span><span class="s3">: </span><span class="s4">const </span><span class="s1">TextStyle</span><span class="s3">(</span><span class="s1">fontSize</span><span class="s3">: </span><span class="s5">24</span><span class="s3">),</span>
+                  <span class="s3">),</span>
+                  <span class="s1">Text</span><span class="s3">(</span>
+                    <span class="s1">outputValue</span><span class="s3">.</span><span class="s1">isEmpty </span><span class="s3">? </span><span class="s2">'0' </span><span class="s3">: </span><span class="s1">outputValue</span><span class="s3">,</span>
+                    <span class="s1">style</span><span class="s3">: </span><span class="s4">const </span><span class="s1">TextStyle</span><span class="s3">(</span><span class="s1">fontSize</span><span class="s3">: </span><span class="s5">24</span><span class="s3">),</span>
+                  <span class="s3">),</span>
+                <span class="s3">],</span>
+              <span class="s3">),</span>
+            <span class="s3">),</span>
+            <span class="s4">const </span><span class="s1">SizedBox</span><span class="s3">(</span><span class="s1">height</span><span class="s3">: </span><span class="s5">20</span><span class="s3">),</span>
+
+            <span class="s0">// Main content area with keypad and conversion buttons</span>
+            <span class="s1">Row</span><span class="s3">(</span>
+              <span class="s1">crossAxisAlignment</span><span class="s3">: </span><span class="s1">CrossAxisAlignment</span><span class="s3">.</span><span class="s1">start</span><span class="s3">,</span>
+              <span class="s1">children</span><span class="s3">: [</span>
+                <span class="s0">// Numeric keypad</span>
+                <span class="s1">Expanded</span><span class="s3">(</span>
+                  <span class="s1">flex</span><span class="s3">: </span><span class="s5">2</span><span class="s3">,</span>
+                  <span class="s1">child</span><span class="s3">: </span><span class="s1">GridView</span><span class="s3">.</span><span class="s1">count</span><span class="s3">(</span>
+                    <span class="s1">shrinkWrap</span><span class="s3">: </span><span class="s4">true</span><span class="s3">,</span>
+                    <span class="s1">crossAxisCount</span><span class="s3">: </span><span class="s5">3</span><span class="s3">,</span>
+                    <span class="s1">childAspectRatio</span><span class="s3">: </span><span class="s5">1.5</span><span class="s3">,</span>
+                    <span class="s1">mainAxisSpacing</span><span class="s3">: </span><span class="s5">8</span><span class="s3">,</span>
+                    <span class="s1">crossAxisSpacing</span><span class="s3">: </span><span class="s5">8</span><span class="s3">,</span>
+                    <span class="s1">children</span><span class="s3">: [</span>
+                      <span class="s1">...</span><span class="s3">[</span><span class="s2">'7'</span><span class="s3">, </span><span class="s2">'8'</span><span class="s3">, </span><span class="s2">'9'</span><span class="s3">, </span><span class="s2">'4'</span><span class="s3">, </span><span class="s2">'5'</span><span class="s3">, </span><span class="s2">'6'</span><span class="s3">, </span><span class="s2">'1'</span><span class="s3">, </span><span class="s2">'2'</span><span class="s3">, </span><span class="s2">'3'</span><span class="s3">, </span><span class="s2">'.'</span><span class="s3">, </span><span class="s2">'0'</span><span class="s3">, </span><span class="s2">'-'</span><span class="s3">]</span>
+                          <span class="s3">.</span><span class="s1">map</span><span class="s3">((</span><span class="s1">key</span><span class="s3">) =&gt; </span><span class="s1">buildButton</span><span class="s3">(</span><span class="s1">key</span><span class="s3">)),</span>
+                    <span class="s3">],</span>
+                  <span class="s3">),</span>
+                <span class="s3">),</span>
+                <span class="s4">const </span><span class="s1">SizedBox</span><span class="s3">(</span><span class="s1">width</span><span class="s3">: </span><span class="s5">16</span><span class="s3">),</span>
+                <span class="s0">// Conversion buttons</span>
+                <span class="s1">Expanded</span><span class="s3">(</span>
+                  <span class="s1">child</span><span class="s3">: </span><span class="s1">Column</span><span class="s3">(</span>
+                    <span class="s1">mainAxisAlignment</span><span class="s3">: </span><span class="s1">MainAxisAlignment</span><span class="s3">.</span><span class="s1">start</span><span class="s3">,</span>
+                    <span class="s1">children</span><span class="s3">: [</span>
+                      <span class="s1">buildConversionButton</span><span class="s3">(</span><span class="s2">'C-F'</span><span class="s3">),</span>
+                      <span class="s4">const </span><span class="s1">SizedBox</span><span class="s3">(</span><span class="s1">height</span><span class="s3">: </span><span class="s5">8</span><span class="s3">),</span>
+                      <span class="s1">buildConversionButton</span><span class="s3">(</span><span class="s2">'F-C'</span><span class="s3">),</span>
+                      <span class="s4">const </span><span class="s1">SizedBox</span><span class="s3">(</span><span class="s1">height</span><span class="s3">: </span><span class="s5">8</span><span class="s3">),</span>
+                      <span class="s1">buildConversionButton</span><span class="s3">(</span><span class="s2">'Kg-Lb'</span><span class="s3">),</span>
+                      <span class="s4">const </span><span class="s1">SizedBox</span><span class="s3">(</span><span class="s1">height</span><span class="s3">: </span><span class="s5">8</span><span class="s3">),</span>
+                      <span class="s1">buildConversionButton</span><span class="s3">(</span><span class="s2">'Lb-Kg'</span><span class="s3">),</span>
+                    <span class="s3">],</span>
+                  <span class="s3">),</span>
+                <span class="s3">),</span>
+              <span class="s3">],</span>
+            <span class="s3">),</span>
+          <span class="s3">],</span>
+        <span class="s3">),</span>
+      <span class="s3">),</span>
+    <span class="s3">);</span>
+  <span class="s3">}</span>
+
+  <span class="s1">Widget buildButton</span><span class="s3">(</span><span class="s1">String text</span><span class="s3">) {</span>
+    <span class="s4">return </span><span class="s1">Container</span><span class="s3">(</span>
+      <span class="s1">decoration</span><span class="s3">: </span><span class="s1">BoxDecoration</span><span class="s3">(</span>
+        <span class="s1">border</span><span class="s3">: </span><span class="s1">Border</span><span class="s3">.</span><span class="s1">all</span><span class="s3">(</span><span class="s1">color</span><span class="s3">: </span><span class="s1">Colors</span><span class="s3">.</span><span class="s1">purple</span><span class="s3">.</span><span class="s1">withOpacity</span><span class="s3">(</span><span class="s5">0.5</span><span class="s3">)),</span>
+        <span class="s1">borderRadius</span><span class="s3">: </span><span class="s1">BorderRadius</span><span class="s3">.</span><span class="s1">circular</span><span class="s3">(</span><span class="s5">4</span><span class="s3">),</span>
+        <span class="s1">color</span><span class="s3">: </span><span class="s1">Colors</span><span class="s3">.</span><span class="s1">purple</span><span class="s3">.</span><span class="s1">withOpacity</span><span class="s3">(</span><span class="s5">0.1</span><span class="s3">),</span>
+      <span class="s3">),</span>
+      <span class="s1">child</span><span class="s3">: </span><span class="s1">TextButton</span><span class="s3">(</span>
+        <span class="s1">onPressed</span><span class="s3">: () =&gt; </span><span class="s1">onButtonPressed</span><span class="s3">(</span><span class="s1">text</span><span class="s3">),</span>
+        <span class="s1">child</span><span class="s3">: </span><span class="s1">Text</span><span class="s3">(</span>
+          <span class="s1">text</span><span class="s3">,</span>
+          <span class="s1">style</span><span class="s3">: </span><span class="s4">const </span><span class="s1">TextStyle</span><span class="s3">(</span>
+            <span class="s1">fontSize</span><span class="s3">: </span><span class="s5">24</span><span class="s3">,</span>
+            <span class="s1">color</span><span class="s3">: </span><span class="s1">Colors</span><span class="s3">.</span><span class="s1">purple</span><span class="s3">,</span>
+          <span class="s3">),</span>
+        <span class="s3">),</span>
+      <span class="s3">),</span>
+    <span class="s3">);</span>
+  <span class="s3">}</span>
+
+  <span class="s1">Widget buildConversionButton</span><span class="s3">(</span><span class="s1">String type</span><span class="s3">) {</span>
+    <span class="s4">return </span><span class="s1">Container</span><span class="s3">(</span>
+      <span class="s1">width</span><span class="s3">: </span><span class="s1">double</span><span class="s3">.</span><span class="s1">infinity</span><span class="s3">,</span>
+      <span class="s1">decoration</span><span class="s3">: </span><span class="s1">BoxDecoration</span><span class="s3">(</span>
+        <span class="s1">border</span><span class="s3">: </span><span class="s1">Border</span><span class="s3">.</span><span class="s1">all</span><span class="s3">(</span><span class="s1">color</span><span class="s3">: </span><span class="s1">Colors</span><span class="s3">.</span><span class="s1">purple</span><span class="s3">.</span><span class="s1">withOpacity</span><span class="s3">(</span><span class="s5">0.5</span><span class="s3">)),</span>
+        <span class="s1">borderRadius</span><span class="s3">: </span><span class="s1">BorderRadius</span><span class="s3">.</span><span class="s1">circular</span><span class="s3">(</span><span class="s5">4</span><span class="s3">),</span>
+        <span class="s1">color</span><span class="s3">: </span><span class="s1">selectedConversion </span><span class="s3">== </span><span class="s1">type</span>
+            <span class="s3">? </span><span class="s1">Colors</span><span class="s3">.</span><span class="s1">purple</span><span class="s3">.</span><span class="s1">withOpacity</span><span class="s3">(</span><span class="s5">0.2</span><span class="s3">)</span>
+            <span class="s3">: </span><span class="s1">Colors</span><span class="s3">.</span><span class="s1">purple</span><span class="s3">.</span><span class="s1">withOpacity</span><span class="s3">(</span><span class="s5">0.1</span><span class="s3">),</span>
+      <span class="s3">),</span>
+      <span class="s1">child</span><span class="s3">: </span><span class="s1">TextButton</span><span class="s3">(</span>
+        <span class="s1">onPressed</span><span class="s3">: () {</span>
+          <span class="s1">setState</span><span class="s3">(() {</span>
+            <span class="s1">selectedConversion </span><span class="s3">= </span><span class="s1">type</span><span class="s3">;</span>
+            <span class="s1">inputValue </span><span class="s3">= </span><span class="s2">''</span><span class="s3">;</span>
+            <span class="s1">outputValue </span><span class="s3">= </span><span class="s2">''</span><span class="s3">;</span>
+          <span class="s3">});</span>
+        <span class="s3">},</span>
+        <span class="s1">child</span><span class="s3">: </span><span class="s1">Text</span><span class="s3">(</span>
+          <span class="s1">type</span><span class="s3">,</span>
+          <span class="s1">style</span><span class="s3">: </span><span class="s4">const </span><span class="s1">TextStyle</span><span class="s3">(</span>
+            <span class="s1">color</span><span class="s3">: </span><span class="s1">Colors</span><span class="s3">.</span><span class="s1">purple</span><span class="s3">,</span>
+          <span class="s3">),</span>
+        <span class="s3">),</span>
+      <span class="s3">),</span>
+    <span class="s3">);</span>
+  <span class="s3">}</span>
+<span class="s3">}</span></pre>
+</body>
+</html>
